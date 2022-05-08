@@ -140,8 +140,7 @@
             this.comboStates.Name = "comboStates";
             this.comboStates.Size = new System.Drawing.Size(161, 23);
             this.comboStates.TabIndex = 10;
-            
-            this.comboStates.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboStates_MouseClick);
+            this.comboStates.SelectedIndexChanged += new System.EventHandler(this.comboStates_SelectedIndexChanged);
             // 
             // stateListBindingSource
             // 

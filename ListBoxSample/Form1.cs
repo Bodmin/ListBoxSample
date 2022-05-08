@@ -35,6 +35,10 @@ namespace ListBoxSample
                 AddState(id, name, abrev);
             }
             else MessageBox.Show("Check the textboxes. There is an error.");
+            SetBindings();
+            txtAbrev.Text = "";
+            txtID.Text = "";
+            txtState.Text = "";
                         
         }
 
@@ -42,12 +46,7 @@ namespace ListBoxSample
         {
             SetBindings();
         }
-
-        private void comboStates_MouseClick(object sender, MouseEventArgs e)
-        {
-            
-        }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             OpeningItems();
@@ -70,6 +69,16 @@ namespace ListBoxSample
             comboStates.DataSource = states;
             comboStates.DisplayMember = "Name";
 
+        }
+
+        private void comboStates_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int i = (int)((StateList)listbStates.SelectedItem).Id;
+            txtID.Text = i.ToString();
+            string s1 = ((StateList)listbStates.SelectedItem).Name;
+            txtState.Text = s1.ToString();
+            string s2 = ((StateList)listbStates.SelectedItem).Abbrev;
+            txtAbrev.Text = s2.ToString();
         }
     }
 
